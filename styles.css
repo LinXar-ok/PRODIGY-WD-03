@@ -1,6 +1,7 @@
-/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto Mono', monospace;
   background-color: #f0f0f0;
   display: flex;
   justify-content: center;
@@ -21,6 +22,7 @@ h1 {
   margin-bottom: 20px;
 }
 
+
 .mode-selector {
   margin-bottom: 20px;
 }
@@ -34,16 +36,23 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  transition: background-color 0.3s ease;
 }
 
-.mode-selector button:hover {
-  background-color: #0056b3;
+.mode-selector button,
+.restart-btn {
+  background-image: linear-gradient(to right, #007bff, #0056b3);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5);
+  transition: transform 0.2s;
 }
 
 .mode-selector button:focus {
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.mode-selector button:hover,
+.restart-btn:hover {
+  transform: scale(1.05);
 }
 
 
@@ -77,10 +86,10 @@ h1 {
 
 .game-board {
   display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin-bottom: 20px;
+  max-width: 400px;
+  margin: auto;
 }
 
 .cell {
@@ -116,4 +125,26 @@ h1 {
 
 .restart-btn:hover {
   background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .game-board {
+    max-width: 90%;
+  }
+
+  .cell {
+    font-size: 5vw;
+    width: 65px;
+    height: 65px;
+  }
+
+  .mode-selector button,
+  .restart-btn {
+    font-size: 12px;
+  }
+
+  .difficulty-selector label,
+  .difficulty-selector select {
+    font-size: 14px;
+  }
 }

@@ -83,7 +83,7 @@ function restartGame() {
   });
 }
 
-// Make AI Move based on selected difficulty
+// Function for Move based on selected difficulty
 function makeAIMove() {
   const difficulty = difficultySelector.value;
 
@@ -94,7 +94,7 @@ function makeAIMove() {
   }
 }
 
-// Basic AI for player O
+// Basic AI
 function makeBasicAIMove() {
   if (!gameActive) return;
 
@@ -124,7 +124,7 @@ function makeBasicAIMove() {
   }
 }
 
-// Smart AI using Minimax for player O
+// Smart AI using Minimax
 function makeSmartAIMove() {
   if (!gameActive) return;
 
@@ -180,7 +180,7 @@ function minimax(board, depth, isMaximizing) {
     let bestScore = -Infinity;
     board.forEach((cell, index) => {
       if (cell === "") {
-        board[index] = "O"; // AI move
+        board[index] = "O";
         let score = minimax(board, depth + 1, false);
         board[index] = "";
         bestScore = Math.max(score, bestScore);
@@ -191,7 +191,7 @@ function minimax(board, depth, isMaximizing) {
     let bestScore = Infinity;
     board.forEach((cell, index) => {
       if (cell === "") {
-        board[index] = "X"; // Player move
+        board[index] = "X";
         let score = minimax(board, depth + 1, true);
         board[index] = "";
         bestScore = Math.min(score, bestScore);
